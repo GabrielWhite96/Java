@@ -58,32 +58,11 @@ public class Ponto{
         return dist;
     }
 
-    public boolean isColinear(Ponto p2, Ponto p3){
-        if(this.determinante(p2, p3) == 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     public double determinante(Ponto p2, Ponto p3){
         double parcela1 = this.cordx * p2.getCordy() * 1 + p2.getCordx() * p3.getCordy() * 1 + this.cordy * 1 * p3.getCordx();
         double parcela2 = p3.getCordx() * p2.getCordy() * 1 + p2.getCordx() * this.cordy * 1 + p3.getCordy() * 1 * this.cordx;
         double det =  parcela1 - parcela2;
-        return det;
-    }
-
-    public double areaTriangulo(Ponto p2, Ponto p3){
-        double det2 = this.determinante(p2, p3);
-        double areaT = 0;
-        if(det2 != 0){
-            areaT = det2/2;
-        }if(areaT < 0){
-            areaT*=(-1);
-        }if(areaT == 0){
-            System.out.println("O triangulo não existe");
-        }
-        return areaT;
+        return det; 
     }
 
 }

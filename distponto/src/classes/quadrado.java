@@ -4,6 +4,8 @@ public class quadrado {
     private Ponto pt[];
     private double area;
     private double perimetro;
+    private double part1;
+    private double part2;
     private double f;
     private double j;
     private double t;
@@ -49,14 +51,16 @@ public class quadrado {
         this.j = pt[1].distancia(pt[2]);
         this.t = pt[2].distancia(pt[3]);
         this.q = pt[3].distancia(pt[0]);
-        if(f==j && j==t && t==q && q==f){
+        this.part1 = pt[0].distancia(pt[2]);
+        this.part2 = pt[1].distancia(pt[3]);
+        if(f==j && j==t && t==q && q==f && part1 == part2){
             return true;
         }else{
             return false;
         }
     }
 
-    public String areaQ(){
+    public String area(){
         if(this.verificaQuadrado()==true){
             double aux = pt[0].distancia(pt[1]);
             this.area = aux*aux;
