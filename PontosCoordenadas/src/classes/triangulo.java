@@ -36,7 +36,10 @@ public class triangulo {
     @Override
     public String toString(){
         String aux = "";
-        return aux;
+        for(int i=0; i <= 2; i++){
+            aux += this.pn[i];
+        }
+        return aux + "\nÁrea: " +this.area() + "\nPerimetro: " + this.perimetro();
     }
 
     //funções pedidas
@@ -54,7 +57,7 @@ public class triangulo {
         this.t = pn[2].distancia(pn[0]);
     }
 
-    public double areaTriangulo(){
+    public double area(){
         double det2 = pn[0].determinante(pn[1], pn[2]);
         this.area = 0;
         if(det2 != 0){

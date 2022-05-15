@@ -4,12 +4,7 @@ public class quadrado {
     private Ponto pt[];
     private double area;
     private double perimetro;
-    private double part1;
-    private double part2;
-    private double f;
-    private double j;
-    private double t;
-    private double q;
+    private double lado;
 
     //construtor
     public quadrado(){
@@ -42,43 +37,56 @@ public class quadrado {
         for(int i=0; i <= 3; i++){
             aux += this.pt[i];
         }
-        return aux;
+        return aux + "\nÁrea: " +this.area() + "\nPerimetro: " + this.perimetro();
     }
 
     //Funçoes pedidas
     public boolean verificaQuadrado(){
-        this.f = pt[0].distancia(pt[1]);
-        this.j = pt[1].distancia(pt[2]);
-        this.t = pt[2].distancia(pt[3]);
-        this.q = pt[3].distancia(pt[0]);
-        this.part1 = pt[0].distancia(pt[2]);
-        this.part2 = pt[1].distancia(pt[3]);
-        if(f==j && j==t && t==q && q==f && part1 == part2){
+        double contLado = 1;
+        double contDiagonal = 0;
+        double f = pt[0].distancia(pt[1]);
+        double j = pt[1].distancia(pt[2]);
+        double t = pt[2].distancia(pt[3]);
+        double q = pt[3].distancia(pt[0]);
+        double r = pt[0].distancia(pt[2]);
+        double g = pt[1].distancia(pt[3]);
+        double aux[] = {f, j, t, q, r, g};
+        
+        for(int i=1; i<=5; i++){
+            if(aux[0]==aux[i]){
+                contLado++;
+            }else{
+                contDiagonal++;
+            }
+        }
+        if(contLado==4){
+            this.lado = aux[0];
+        }else{
+            this.lado = aux[1];
+        }
+        if(contLado==4 && contDiagonal==2 || contLado==2 && contDiagonal==4){
             return true;
         }else{
             return false;
         }
+
     }
 
-    public String area(){
+    public double area(){
         if(this.verificaQuadrado()==true){
-            double aux = pt[0].distancia(pt[1]);
-            this.area = aux*aux;
-            String str = Double.toString(this.area);
-            return str;
+            this.area = this.lado*this.lado;
+            return this.area;
         }else{
-            return "tudo errado faz denovo";
+            return 0;
         }
     }
 
-    public String perimetro(){
+    public double perimetro(){
         if(this.verificaQuadrado()==true){
-            double aux = pt[0].distancia(pt[1]);
-            this.perimetro = aux*4;
-            String str = Double.toString(this.perimetro);
-            return str;
+            this.perimetro = this.lado*4;
+            return this.perimetro;
         }else{
-            return "tudo errado faz denovo";
+            return 0;
         }
     } 
 }
