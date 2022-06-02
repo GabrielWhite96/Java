@@ -47,7 +47,7 @@ public class aluno {
     //Funções principais
     public void preencher(){
         ler = new Scanner(System.in);
-        System.out.printf("Insira as informações.");
+        System.out.printf("INSIRA AS INFORMAÇOES DO ALUNO");
         System.out.printf("Nome: ");
         this.nome = ler.next();
         System.out.printf("Idade: ");

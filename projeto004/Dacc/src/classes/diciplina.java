@@ -8,14 +8,15 @@ public class diciplina {
     private int semestre;
     private professor ministrante;
     private aluno listAluno[];
+    private Scanner ler;
 
     //Construtor
     public diciplina(){
         this.nome = "";
         this.semestre = 0;
         this.ministrante = new professor();
-        this.listAluno = new aluno[40];
-        for(int i=0; i<=39 ; i++){
+        this.listAluno = new aluno[2];
+        for(int i=0; i<=1 ; i++){
             this.listAluno[i] = new aluno();
         }
     }
@@ -48,25 +49,24 @@ public class diciplina {
 
     //Funções principais
     public void preencher(){
-        Scanner ler = new Scanner(System.in);
-        System.out.println("Insira as informações.");
+        ler = new Scanner(System.in);
+        System.out.println("INSIRA AS INFORMAÇÕES DA DICIPLINA");
         System.out.printf("Nome: ");
         this.nome = ler.next();
         System.out.printf("Semestre: ");
         this.semestre = ler.nextInt();
         System.out.print("Professor---->");
         ministrante.preencher();
-        for(int i=0; i<=39; i++){
+        for(int i=0; i<=1; i++){
             this.listAluno[i].preencher();
         }
-        ler.close();
     }
 
     public void copiar(diciplina outro){
         this.nome = outro.getNome();
         this.semestre = outro.getSemestre();
-        this.ministrante = outro.getMinistrante();
-        for(int i=0; i<=39; i++){
+        this.ministrante.copiar(outro.getMinistrante());
+        for(int i=0; i<=1; i++){
             this.listAluno[i].copiar(outro.getListAluno()[i]);
         }
     }

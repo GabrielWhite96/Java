@@ -9,9 +9,12 @@ public class InsertionSort {
     private int contTroca=0;
     private int contComp=0;
     
-    public void insertionSort(int desordenado[]) {
+    public InsertionSort(int vetor[], int n){
+        
+    }
+
+    public void insertionSort(int desordenado[], int aux) {
         tempoInicial = LocalTime.now();
-        int aux = desordenado.length;
 
         for (int n = 1; n < aux; n++) {
             int key = desordenado[n];

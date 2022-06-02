@@ -8,6 +8,8 @@ public class MergeSort {
     private int contAcesso=0;
     private int contTroca=0;
     private int contComp=0;
+
+    
     
     public void merge(int aux[], int p, int q, int r) {
         int n1 = q - p + 1;
