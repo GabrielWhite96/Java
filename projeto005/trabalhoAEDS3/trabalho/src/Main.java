@@ -1,5 +1,3 @@
-import java.util.Random;
-//import java.util.Arrays;
 import classes.InsertionSort;
 import classes.MergeSort;
 import classes.QuickSort;
@@ -9,38 +7,24 @@ import classes.vetores;
 public class Main {
     public static void main(String[] args){ 
     
-        vetores v[] = new vetores();
-        v.imprimivetor([30000], 20);
-
-
-        /*int n3[] = new int[30000];
-        Random r3 = new Random();
-        for(int i=0; i <=29999; i++){
-            n3[i] = r3.nextInt(30000);
-        }
-
-        InsertionSort auxi3 = new InsertionSort();
-        auxi3.insertionSort(n3);
-        auxi3.impConts();
-        auxi3.impTimer();
-        System.out.println("-------------------------------------------------------------------------");
+        int v[] = new int[30000];
+        vetores.preencheVetor(v);
         
-        MergeSort auxm3 = new MergeSort();
-        auxm3.mergeSort(n3, 0, n3.length - 1);
-        auxm3.impConts();
-        auxm3.impTimer();
-        System.out.println("-------------------------------------------------------------------------");
+        InsertionSort auxix = new InsertionSort(v, 5000);
+        MergeSort auxmx = new MergeSort(v, 5000);
+        QuickSort auxqx = new QuickSort(v, 5000);
         
-        QuickSort auxq3 = new QuickSort();
-        auxq3.quickSort(n3, 0, n3.length - 1);
-        auxq3.impConts();
-        auxq3.impTimer();
-        System.out.println("-------------------------------------------------------------------------");*/
-    
-    /*
-        System.out.println("/***************************************************************");
-        System.out.println("* Aluno: Gabriel Fernandes Vieira de Paula                    *");
-        System.out.println("* Matricula: 2021008766                                       *");
+        InsertionSort auxiy = new InsertionSort(v, 10000);
+        MergeSort auxmy = new MergeSort(v, 10000);
+        QuickSort auxqy = new QuickSort(v, 10000);
+        
+        InsertionSort auxiz = new InsertionSort(v, 30000);
+        MergeSort auxmz = new MergeSort(v, 30000);
+        QuickSort auxqz = new QuickSort(v, 30000);
+        
+        System.out.println("/**************************************************************");
+        System.out.println("* Aluno: Gabriel Fernandes, Lucas Sila                        *");
+        System.out.println("* Matricula: 2021008766,                                      *");
         System.out.println("* Curso: Ciencia da Computacao                                *");
         System.out.println("* 1º Trabalho Pratico -- Ordenacao Interna                    *");
         System.out.println("* DCC288 -- 2022 -- IFSEMG, 3o.                               *");
@@ -48,6 +32,11 @@ public class Main {
         System.out.println("* Compilador: Visual Studio Code                              *");
         System.out.println("* Sistema Operacional: Windows 11                             *");
         System.out.println("***************************************************************");
-    */
+        System.out.print("\nVetores Desordenados: ");
+        vetores.imprimeVetor(v, 20);
+        System.out.print("Vetores Ordenados:    ");
+        InsertionSort aux = new InsertionSort(v, 20);
+        aux.insertionSort(v, 20);
+        vetores.imprimeVetor(v, 20);
     }
 }
